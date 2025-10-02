@@ -814,17 +814,6 @@ h3 { font-size: 1.5rem; }
   overflow: hidden;
 }
 
-.view-details::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 2em;
-  background: linear-gradient(90deg, #a18cd1 0%, #fbc2eb 100%);
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 0;
-}
-
 .view-details:hover,
 .view-details:focus {
   color: #fff;
@@ -837,7 +826,6 @@ h3 { font-size: 1.5rem; }
   transform: scale(0.98);
 }
 
-/* Remove underline and box on focus for accessibility */
 .view-details:focus {
   outline: 2px solid #a6c1ee;
   text-decoration: none;
