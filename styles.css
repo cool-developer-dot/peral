@@ -23,7 +23,6 @@
     /* Typography */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Poppins', sans-serif;
-}
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -199,30 +198,48 @@ h3 { font-size: 1.5rem; }
     font-weight: 300;
 }
 
+/* HERO IMAGE CARD - BASE STYLE (Mobile: rounded rectangle) */
 .hero figure {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-2xl); /* Rounded rectangle */
+    margin-top: var(--spacing-md);
     overflow: hidden;
-    border-radius: 50%; /* Circle image for a softer look */
-    margin-top: var(--spacing-lg);
     box-shadow: 0 10px 30px var(--color-shadow);
+}
+
+/* HERO IMAGE CARD - LARGE SCREENS: More rectangular, larger, rounded corners */
+@media (min-width: 769px) {
+    .hero figure {
+        width: 340px;
+        height: 370px;
+        max-width: 100%;
+        aspect-ratio: unset;
+        border-radius: 2rem; /* Rectangular with rounded corners */
+    }
 }
 
 .hero img {
   width: 100%;
+  max-width: 500px;       /* keeps it a nice rectangle on laptops/desktops */
   height: auto;
-  max-height: 90vh; /* keeps it hero-sized but not overwhelming */
-  object-fit: contain; /* keeps full drink visible */
-  border-radius: 2rem; /* soft, modern rounded edges */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* depth shadow */
-  animation: float 6s ease-in-out infinite; /* subtle floating animation */
+  display: block;
+  margin: 0 auto;    /* keeps the image proportionate */
+  border-radius: 1.5rem;  /* soft, rounded edges (like your screenshot) */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  background: #fff;       /* ensures no transparency gaps */
   transition: transform 0.5s ease, filter 0.5s ease;
 }
 
 .hero img:hover {
-  transform: scale(1.05) rotate(-2deg); /* interactive hover */
-  filter: brightness(1.1) saturate(1.2); /* vibrant pop */
+  transform: scale(1.05) rotate(-2deg);
+  filter: brightness(1.1) saturate(1.2);
 }
+
+
+
 
 @keyframes float {
   0% { transform: translateY(0px); }
@@ -779,7 +796,11 @@ h3 { font-size: 1.5rem; }
 /* Desktop override */
 @media (min-width: 769px) {
     .hero figure {
-        border-radius: 50%; /* Revert to circle on large screens */
+        border-radius: 2rem; /* Rectangular with rounded corners */
+        width: 340px;
+        height: 370px;
+        max-width: 100%;
+        aspect-ratio: unset;
     }
 }
 
